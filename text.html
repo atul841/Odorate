@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ open: false }">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixed Icon Sidebar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="flex h-screen">
+
+    <!-- Sidebar -->
+    <div :class="open ? 'w-64' : 'w-16'" class="bg-white shadow-md transition-all duration-300 flex flex-col">
+      
+      <!-- Toggle Button -->
+      <div class="p-4 flex justify-end">
+        <button @click="open = !open" class="text-gray-600 hover:text-blue-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="flex-1 space-y-2 px-2">
+        <a href="#" class="flex items-center space-x-3 p-2 rounded-md hover:bg-blue-100 text-gray-700">
+          <span>🏠</span>
+          <span x-show="open" class="whitespace-nowrap">Dashboard</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 p-2 rounded-md hover:bg-blue-100 text-gray-700">
+          <span>📁</span>
+          <span x-show="open">Projects</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 p-2 rounded-md hover:bg-blue-100 text-gray-700">
+          <span>👤</span>
+          <span x-show="open">Profile</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 p-2 rounded-md hover:bg-blue-100 text-gray-700">
+          <span>⚙️</span>
+          <span x-show="open">Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <h1 class="text-3xl font-semibold">Main Content</h1>
+      <p class="mt-4 text-gray-600">This is your main area content.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
